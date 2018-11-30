@@ -207,17 +207,16 @@ class DefaultScene extends Phaser.Scene {
         if (!this.count && intersect && this.currentStage < 9) {
             this.clearSecondInterval();
             this.currentStage += 1;
-            gotoNextStage();
+            this.gotoNextStage();
         } else {
             const backdrop = this.add.image(800, 450, 'backdrop');
             backdrop.alpha = 0.9;
             this.add.text(450, 400, 'Game Over', { fontSize: '128px', fill: '#000' });
             this.countText.setText('');
             this.gameOver = true;
-            this.input.keyboard.on('keydown', (event) => {
+            this.input.keyboard.once('keydown', (event) => {
                 console.dir(event);
                 this.gameOver = false;
-                this.input.keyboard.off('keydown', (event) => {});
             });
         }
     }
@@ -247,6 +246,10 @@ class DefaultScene extends Phaser.Scene {
 
         this.gameOver = true;
     }
+
+    gotoNextStage() {
+      this.scene.restart();
+  }
 }
 
 export default DefaultScene;

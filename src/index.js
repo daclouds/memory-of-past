@@ -14,7 +14,4 @@ var config = {
   scene: DefaultScene
 };
 
-function gotoNextStage() {
-    game.scene.scenes[0].scene.restart();
-}
 var game = new Phaser.Game(config);

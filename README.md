@@ -1,6 +1,7 @@
-# Phaser 3 Webpack Project Template
+# Memory of past
 
-A Phaser 3 Project Template
+https://daclouds.itch.io/memory-of-past
+Powered by [Phaser 3](http://phaser.io/)
 
 ### Requirements
 
@@ -12,6 +13,7 @@ Run next commands in your terminal:
 
 | Command | Description |
 |---------|-------------|
-| `npm install` | Install dependencies and launch browser with examples.|
-| `npm start` | Launch browser to show the examples. <br> Press `Ctrl + c` to kill **http-server** process. |
+| `npm start` | Launch browser to show the game. <br> Press `Ctrl + c` to kill **http-server** process. |
+| `npm run build` | Install dependencies and launch browser with the game.|
+| `npm run copy` | copy files to dist folder. |
 =======

@@ -58,7 +58,6 @@
     "build": "webpack",
     "start": "npm run build && webpack-dev-server --port=8000",
     "copy": "copyfiles ./assets/** ./index.html ./build/project.bundle.js ./dist",
-    "copy-bundle": "copyfiles ./dist",
     "deploy": "gh-pages -d dist"
   },
   "version": "1.0.9"

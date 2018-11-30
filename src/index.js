@@ -1,4 +1,7 @@
-import DefaultScene from './default.scene';
+import StartScene from './scene/start.scene';
+import ControlsScene from './scene/controls.scene';
+import StageScene from './scene/stage.scene';
+import StageClearScene from './scene/stage-clear.scene';
 
 var config = {
   type: Phaser.AUTO,
@@ -7,11 +10,11 @@ var config = {
   physics: {
       default: 'arcade',
       arcade: {
-          gravity: { y: 300 },
+          gravity: { y: 150 },
           debug: false
       }
   },
-  scene: DefaultScene
+  scene: [StartScene, ControlsScene, StageScene, StageClearScene]
 };
 
-var game = new Phaser.Game(config);
+new Phaser.Game(config);

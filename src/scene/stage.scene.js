@@ -8,7 +8,7 @@ class StageScene extends Phaser.Scene {
     }
 
     preload () {
-        this.score = 0;
+        this.score = this.score || 0;
         this.gameOver = false;
 
         Array.from({length: 9}, (_, i) => {
@@ -33,7 +33,6 @@ class StageScene extends Phaser.Scene {
     }
 
     create () {
-        this.score = 0;
         this.count = 10;
         this.gauge = 100;
 
@@ -110,25 +109,11 @@ class StageScene extends Phaser.Scene {
         //  Input Events
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
-        // this.stars = this.physics.add.group({
-        //     key: 'star',
-        //     repeat: 11,
-        //     setXY: { x: 12, y: 0, stepX: 70 }
-        // });
-
-        // this.stars.children.iterate(function (child) {
-
-        //     //  Give each star a slightly different bounce
-        //     child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
-        // });
-
         this.bombs = this.physics.add.group();
 
         //  The score
         this.add.image(128, 64, 'score_text');
-        this.scoreText = this.add.text(28, 44, 'score: 0', { fontSize: '40px', fill: '#000' });
+        this.scoreText = this.add.text(120, 54, `${this.score}`, { fontSize: '40px', fill: '#000' });
         this.add.image(780, 96, 'countdown');
         this.countText = this.add.text(750, 82, '10', { fontSize: '60px', fill: '#000' });
 
@@ -151,8 +136,6 @@ class StageScene extends Phaser.Scene {
         this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
 
         this.secondInterval = setInterval(() => this.countdown(), 1000);
-
-        // this.physics.add.overlap(this.player, this.polaroid, this.checkPicture, null, this);
     }
 
     update () {
@@ -188,37 +171,14 @@ class StageScene extends Phaser.Scene {
         this.gaugeFill.setScale(this.gauge / 100, 1);
     }
 
-    collectStar (player, star) {
-        star.disableBody(true, true);
-
-        //  Add and update the score
-        this.score += 10;
-        this.scoreText.setText('Score: ' + this.score);
-
-        if (this.stars.countActive(true) === 0) {
-            //  A new batch of stars to collect
-            this.stars.children.iterate(function (child) {
-
-                child.enableBody(true, child.x, 0, true, true);
-
-            });
-
-            var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-            var bomb = this.bombs.create(x, 16, 'bomb');
-            bomb.setBounce(1);
-            bomb.setCollideWorldBounds(true);
-            bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-            bomb.allowGravity = false;
-
-        }
-    }
-
     checkPicture (player, polaroid) {
         const intersect = Phaser.Geom.Intersects.RectangleToRectangle(player.getBounds(), polaroid.getBounds());
         if (intersect && this.currentStage < 9) {
             this.clearSecondInterval();
             this.currentStage += 1;
+
+            this.score += 100;
+            this.scoreText.setText(this.score);
 
             this.scene.launch('stage-clear');
         } else {

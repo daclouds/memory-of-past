@@ -1,35 +1,11 @@
 {
-  "_from": "phaser3-project-template@^1.0.9",
-  "_id": "phaser3-project-template@1.0.9",
-  "_inBundle": false,
-  "_integrity": "sha1-LjcGrYyrmeviglDjCgHet6eZzhc=",
-  "_location": "/phaser3-project-template",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "phaser3-project-template@^1.0.9",
-    "name": "phaser3-project-template",
-    "escapedName": "phaser3-project-template",
-    "rawSpec": "^1.0.9",
-    "saveSpec": null,
-    "fetchSpec": "^1.0.9"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/phaser3-project-template/-/phaser3-project-template-1.0.9.tgz",
-  "_shasum": "2e3706ad8cab99ebe28250e30a01deb7a799ce17",
-  "_spec": "phaser3-project-template@^1.0.9",
-  "_where": "D:\\workspace\\git\\phaser3-project",
   "author": {
-    "name": "Richard Davey",
-    "email": "rdavey@gmail.com",
-    "url": "http://www.photonstorm.com"
+    "name": "daclouds",
+    "email": "daclouds@gmail.com",
+    "url": "https://daclouds.itch.io/memory-of-past"
   },
   "bugs": {
-    "url": "https://github.com/photonstorm/phaser3-project-template/issues"
+    "url": "https://github.com/daclouds/memory-of-past/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -38,21 +14,21 @@
     "phaser": "^3.3.0"
   },
   "deprecated": false,
-  "description": "A Phaser 3 Project Template",
+  "description": "A arcade game. A player wins the game with more face of occupy in the frame before the countdown.",
   "devDependencies": {
     "raw-loader": "^0.5.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
-  "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
+  "homepage": "https://daclouds.itch.io/memory-of-past",
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "main": "src/index.js",
-  "name": "phaser3-project-template",
+  "name": "memory-of-past",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
+    "url": "git+https://github.com/daclouds/memory-of-past/"
   },
   "scripts": {
     "build": "webpack",
